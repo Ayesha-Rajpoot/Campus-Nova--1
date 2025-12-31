@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Technician | GTTI RYK</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .course-detail-hero {
+            padding: 120px 10% 60px;
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+
+        .detail-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 5%;
+        }
+
+        .detail-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-top: -80px;
+            position: relative;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--gray-light);
+            padding: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .detail-row span:first-child {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .apply-box {
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="../assets/gtti_logo.png" alt="GTTI Logo">
+                <h1>GTTI <span>RYK</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#departments">All Courses</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <a href="#" class="btn btn-primary open-admission">Apply Now</a>
+        </nav>
+    </header>
+    <div class="course-detail-hero">
+        <h1>Solar Technician</h1>
+        <p>Advance your career with professional technical training.</p>
+    </div>
+    <div class="detail-container">
+        <div class="detail-card">
+            <h2>Course Overview</h2>
+            <p style="margin: 20px 0;">Installation and maintenance of solar panels and inverters.</p>
+            <div class="detail-row"><span>Duration</span><span>3 Months</span></div>
+            <div class="detail-row"><span>Fee Structure</span><span>Free (Govt Funded)</span></div>
+            <div class="detail-row"><span>Class Timing</span><span>Evening</span></div>
+            <div class="apply-box"><button class="btn btn-accent open-admission"
+                    style="padding: 15px 50px; font-size: 1.1rem;">Apply for this Course</button></div>
+        </div>
+    </div>
+
+    <div id="admissionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header" style="text-align: center;">
+                <img src="../assets/gtti_logo.png" alt="GTTI Logo" style="height: 40px; margin-bottom: 10px;">
+                <h3>Admission Application</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="admissionForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactNumber">Contact Number</label>
+                        <input type="tel" id="contactNumber" required placeholder="03xx-xxxxxxx">
+                    </div>
+                    <div class="form-group">
+                        <label for="applyCourse">Selected Course</label>
+                        <input type="text" id="applyCourse" value="Solar Technician" readonly
+                            style="background: #f0f0f0;">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer style="margin-top: 100px;">
+        <div class="footer-bottom">
+            <p>&copy; 2025 GTTI RYK. All Rights Reserved. Govt of Punjab.</p>
+        </div>
+    </footer>
+
+    <script>
+        const modal = document.getElementById('admissionModal');
+        const btns = document.querySelectorAll('.open-admission');
+        const closeBtn = document.querySelector('.close-modal');
+
+        btns.forEach(btn => {
+            btn.onclick = (e) => {
+                e.preventDefault();
+                modal.style.display = 'block';
+            }
+        });
+
+        closeBtn.onclick = () => modal.style.display = 'none';
+        window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; }
+
+        document.getElementById('admissionForm').onsubmit = (e) => {
+            e.preventDefault();
+            alert('Application submitted successfully! We will contact you soon.');
+            modal.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
